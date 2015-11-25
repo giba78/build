@@ -420,15 +420,10 @@ ifeq ($(CORTEX_TUNINGS),true)
 	$(NOOP_BLUETOOTH)
 
   ifeq ($(filter $(LOCAL_DISABLE_CORTEX), $(LOCAL_MODULE)),)
-   ifdef LOCAL_CONLYFLAGS
-    LOCAL_CONLYFLAGS += -mcpu=cortex-a57 -mtune=cortex-a57
+   ifdef LOCAL_CFLAGS_64
+    LOCAL_CFLAGS_64 += -mcpu=cortex-a57 -mtune=cortex-a57
    else
-    LOCAL_CONLYFLAGS := -mcpu=cortex-a57 -mtune=cortex-a57
-   endif
-   ifdef LOCAL_CPPFLAGS
-    LOCAL_CPPFLAGS += -mcpu=cortex-a57 -mtune=cortex-a57
-   else
-    LOCAL_CPPFLAGS := -mcpu=cortex-a57 -mtune=cortex-a57
+    LOCAL_CFLAGS_64 := -mcpu=cortex-a57 -mtune=cortex-a57
    endif
   endif
  endif

@@ -51,6 +51,7 @@ PRODUCT_PACKAGES += \
     libcamera_client \
     libcameraservice \
     libdl \
+    libdrmclearkeyplugin \
     libeffectproxy \
     libeffects \
     libinput \
@@ -122,10 +123,6 @@ PRODUCT_PACKAGES += \
     vold \
     wm
 
-ifneq ($(filter benzo_shamu,$(TARGET_PRODUCT)),)
-PRODUCT_PACKAGES += \
-    libdrmclearkeyplugin 
-endif
 
 PRODUCT_COPY_FILES := $(call add-to-product-copy-files-if-exists,\
     frameworks/base/preloaded-classes:system/etc/preloaded-classes)
