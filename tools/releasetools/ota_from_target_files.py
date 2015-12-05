@@ -710,7 +710,7 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.FlashSuperSU()
 
   script.Print(" ")
-  script.Print("Flashing Kernel..")
+  script.Print("Flashing benzoCore..")
   script.ShowProgress(0.05, 5)
   script.WriteRawImage("/boot", "boot.img")
 
