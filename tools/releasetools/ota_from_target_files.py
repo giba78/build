@@ -704,11 +704,6 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
     if block_based:
       script.Unmount("/system")
 
-  script.Print("Flashing SuperSU..")
-  common.ZipWriteStr(output_zip, "supersu/supersu.zip",
-                 ""+input_zip.read("SYSTEM/addon.d/UPDATE-SuperSU.zip"))
-  script.FlashSuperSU()
-
   script.Print("Flashing Viper4Android...")
   common.ZipWriteStr(output_zip, "v4a/v4a.zip",
                  ""+input_zip.read("SYSTEM/addon.d/v4a.zip"))
@@ -718,6 +713,11 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.Print("Flashing benzoCore..")
   script.ShowProgress(0.05, 5)
   script.WriteRawImage("/boot", "boot.img")
+
+  script.Print("Flashing SuperSU..")
+  common.ZipWriteStr(output_zip, "supersu/supersu.zip",
+                 ""+input_zip.read("SYSTEM/addon.d/UPDATE-SuperSU.zip"))
+  script.FlashSuperSU()
 
   script.ShowProgress(0.2, 10)
   device_specific.FullOTA_InstallEnd()
