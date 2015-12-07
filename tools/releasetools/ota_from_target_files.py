@@ -709,6 +709,10 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
                  ""+input_zip.read("SYSTEM/addon.d/v4a.zip"))
   script.FlashV4A()
 
+  script.Mount("/system")
+  script.DeleteFiles(["/system/vendor/etc/audio_effects.conf",
+                      "/system/addon.d/v4a.zip"])
+
   script.Print(" ")
   script.Print("Flashing benzoCore..")
   script.ShowProgress(0.05, 5)
